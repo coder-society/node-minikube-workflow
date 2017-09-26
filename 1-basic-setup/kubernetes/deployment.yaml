@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-api
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  template:
+    metadata:
+      name: node-api
+      labels:
+        app: node-api
+    spec:
+      containers:
+      - name: node-api
+        image: codersociety/node-api:create
+        ports:
+        - name: http
+          containerPort: 3000
